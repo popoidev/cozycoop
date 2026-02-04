@@ -1,0 +1,74 @@
+name: Deploy Restaurant Menu to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install --save-dev imagemin imagemin-webp imagemin-mozjpeg clean-css-cli html-minifier-terser
+        
+    - name: Optimize images (if any exist)
+      run: |
+        if [ -d "images" ]; then
+          npx imagemin images/**/* --out-dir=dist/images --plugin=mozjpeg --plugin=webp
+        else
+          echo "No images directory found, skipping image optimization"
+        fi
+        
+    - name: Minify CSS
+      run: |
+        mkdir -p dist/css
+        npx cleancss -o dist/css/style.min.css css/style.css
+        
+    - name: Minify JavaScript
+      run: |
+        mkdir -p dist/js
+        cp js/menu.js dist/js/menu.min.js
+        
+    - name: Minify HTML
+      run: |
+        npx html-minifier-terser --input-dir . --output-dir dist --file-ext html \
+          --remove-comments \
+          --collapse-whitespace \
+          --minify-css true \
+          --minify-js true \
+          --remove-redundant-attributes \
+          --use-short-doctype
+          
+    - name: Copy additional files
+      run: |
+        cp manifest.json dist/
+        cp sw.js dist/
+        cp README.md dist/
+        if [ -f "CNAME" ]; then cp CNAME dist/; fi
+        
+    - name: Update file references in HTML
+      run: |
+        sed -i 's/css\/style\.css/css\/style.min.css/g' dist/index.html
+        sed -i 's/js\/menu\.js/js\/menu.min.js/g' dist/index.html
+        
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        cname: # Add your custom domain here if you have one

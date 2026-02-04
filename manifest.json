@@ -1,0 +1,25 @@
+{
+    "name": "Cozy Coop Restaurant Menu",
+    "short_name": "Cozy Coop",
+    "description": "Fresh & Delicious Chicken menu - scan QR code to view",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fffbf5",
+    "theme_color": "#1e3a5f",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍗</text></svg>",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍗</text></svg>",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ],
+    "categories": ["food", "restaurant", "menu"],
+    "lang": "en",
+    "dir": "ltr"
+}

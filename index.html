@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Coop Menu</title>
+    <meta name="description" content="Fresh & Delicious Chicken - Fried Chicken, Wings, Sides & Drinks">
+    <meta name="theme-color" content="#1e3a5f">
+
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Fredoka:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Favicon and PWA -->
+    <link rel="icon" href="cozy-coop-logo-square.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Cozy Coop Menu">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    </style>
+</head>
+
+<body>
+    <!-- Decorative background elements -->
+    <div class="chicken-pattern" style="top: 100px; right: 20px;">🐔</div>
+    <div class="chicken-pattern" style="top: 300px; left: 30px;">🐔</div>
+    <div class="chicken-pattern" style="bottom: 200px; right: 40px;">🐔</div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="cozy-coop-logo.png" alt="Cozy Coop Logo" class="logo">
+            </div>
+            <p
+                style="font-size: 14px; color: var(--navy-blue); opacity: 0.8; margin-top: 10px; position: relative; z-index: 2;">
+                Open Daily • Dine-In • Takeout • Delivery</p>
+        </header>
+
+        <nav class="nav-tabs">
+            <div class="main-tabs">
+                <button class="tab active" onclick="showSection('wings')">Wings & Chicken</button>
+                <button class="tab" onclick="showSection('sides')">Sides</button>
+                <button class="tab" onclick="showSection('drinks')">Drinks</button>
+            </div>
+            <div class="view-toggle">
+                <button class="toggle-btn active" onclick="toggleView('list')" id="list-btn" title="List View">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                </button>
+                <button class="toggle-btn" onclick="toggleView('slider')" id="slider-btn" title="Slider View">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="9" y1="9" x2="9" y2="15"></line>
+                        <line x1="15" y1="9" x2="15" y2="15"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <main id="menu-content">
+
+            <!-- Wings & Chicken Section -->
+            <section class="menu-section" id="wings-section">
+                <div class="menu-items">
+                    <!-- Fried Chicken Items -->
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=300&h=300&fit=crop"
+                            alt="Classic Fried Chicken" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Classic Fried Chicken</h3>
+                            <p class="item-description">Our signature crispy fried chicken with a golden crust and juicy
+                                interior. Marinated for 24 hours in our secret blend of herbs and spices.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$12.99</span>
+                                <span class="item-badge">Bestseller</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=300&h=300&fit=crop"
+                            alt="Spicy Chicken" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Spicy Fried Chicken <span class="spicy-indicator">🌶️🌶️</span></h3>
+                            <p class="item-description">Fiery hot chicken coated with our special spicy breading. Not
+                                for
+                                the faint of heart! Perfectly crispy with a serious kick.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$13.99</span>
+                                <span class="item-badge">Hot!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=300&h=300&fit=crop"
+                            alt="Chicken Tenders" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Chicken Tenders</h3>
+                            <p class="item-description">Premium chicken breast strips, hand-breaded and fried to golden
+                                perfection. Served with your choice of dipping sauce.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$10.99</span>
+                                <span class="item-badge">Kids Love It</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=300&h=300&fit=crop"
+                            alt="Chicken Sandwich" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Crispy Chicken Sandwich</h3>
+                            <p class="item-description">Massive fried chicken breast on a toasted brioche bun with
+                                pickles,
+                                coleslaw, and our signature Cozy sauce.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$11.99</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1661116784396-ef37036c1dc4?w=300&h=300&fit=crop"
+                            alt="Family Bucket" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Family Bucket</h3>
+                            <p class="item-description">12 pieces of mixed fried chicken (drums, thighs, wings,
+                                breasts).
+                                Perfect for sharing with the whole family!</p>
+                            <div class="item-meta">
+                                <span class="item-price">$34.99</span>
+                                <span class="item-badge">Family Size</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wings Items -->
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=300&h=300&fit=crop"
+                            alt="Buffalo Wings" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Buffalo Wings <span class="spicy-indicator">🌶️🌶️</span></h3>
+                            <p class="item-description">Classic buffalo wings tossed in tangy hot sauce with a hint of
+                                butter. Served with celery sticks and blue cheese dip.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$14.99</span>
+                                <span class="item-badge">Classic</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=300&h=300&fit=crop"
+                            alt="BBQ Wings" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">BBQ Wings</h3>
+                            <p class="item-description">Crispy wings glazed with our sweet and smoky BBQ sauce. The
+                                perfect
+                                balance of sweet and savory!</p>
+                            <div class="item-meta">
+                                <span class="item-price">$14.99</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=300&h=300&fit=crop"
+                            alt="Garlic Parmesan Wings" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Garlic Parmesan Wings</h3>
+                            <p class="item-description">Crispy wings tossed in roasted garlic butter and topped with
+                                freshly
+                                grated parmesan cheese. Absolutely irresistible!</p>
+                            <div class="item-meta">
+                                <span class="item-price">$15.99</span>
+                                <span class="item-badge">Fan Favorite</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1594221708779-94832f4320d1?w=300&h=300&fit=crop"
+                            alt="Korean Wings" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Korean Gochujang Wings <span class="spicy-indicator">🌶️🌶️🌶️</span>
+                            </h3>
+                            <p class="item-description">Double-fried wings glazed with sweet and spicy Korean gochujang
+                                sauce, garnished with sesame seeds and green onions.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$16.99</span>
+                                <span class="item-badge">Spicy!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=300&h=300&fit=crop"
+                            alt="Honey Mustard Wings" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Honey Mustard Wings</h3>
+                            <p class="item-description">Wings coated in our homemade honey mustard glaze - the perfect
+                                combination of sweet honey and tangy mustard.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$14.99</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=300&h=300&fit=crop"
+                            alt="Lemon Pepper Wings" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Lemon Pepper Wings</h3>
+                            <p class="item-description">Crispy wings seasoned with zesty lemon and cracked black pepper.
+                                Light, fresh, and addictive!</p>
+                            <div class="item-meta">
+                                <span class="item-price">$14.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sides Section -->
+            <section class="menu-section" id="sides-section" style="display: none;">
+                <div class="menu-items">
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=300&h=300&fit=crop"
+                            alt="French Fries" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Crispy French Fries</h3>
+                            <p class="item-description">Golden, crispy fries seasoned with sea salt. The perfect
+                                companion
+                                to any chicken dish!</p>
+                            <div class="item-meta">
+                                <span class="item-price">$3.99</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1625937286074-9ca519d5d9df?w=300&h=300&fit=crop"
+                            alt="Creamy Coleslaw" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Creamy Coleslaw</h3>
+                            <p class="item-description">Fresh cabbage slaw with our signature creamy dressing. A
+                                refreshing
+                                side to balance the crispy chicken.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$2.99</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1593759608111-e776d61c9f90?w=300&h=300&fit=crop"
+                            alt="Mac and Cheese" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Mac & Cheese</h3>
+                            <p class="item-description">Creamy, cheesy macaroni baked to perfection with a golden
+                                breadcrumb
+                                topping.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$4.99</span>
+                                <span class="item-badge">Comfort Food</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1599021835015-f9ae4f8c6d8c?w=300&h=300&fit=crop"
+                            alt="Mashed Potatoes" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Mashed Potatoes & Gravy</h3>
+                            <p class="item-description">Smooth, buttery mashed potatoes topped with our savory chicken
+                                gravy.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$4.49</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1585325701165-c3d51b8ad2e3?w=300&h=300&fit=crop"
+                            alt="Buttermilk Biscuits" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Buttermilk Biscuits</h3>
+                            <p class="item-description">Warm, flaky buttermilk biscuits served with honey butter. Made
+                                fresh
+                                daily!</p>
+                            <div class="item-meta">
+                                <span class="item-price">$2.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Drinks Section -->
+            <section class="menu-section" id="drinks-section" style="display: none;">
+                <div class="menu-items">
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop"
+                            alt="Soft Drinks" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Soft Drinks</h3>
+                            <p class="item-description">Coca-Cola, Sprite, Fanta, or Dr. Pepper. Served ice-cold in a
+                                chilled glass.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$2.49</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=300&h=300&fit=crop"
+                            alt="Fresh Lemonade" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Fresh Lemonade</h3>
+                            <p class="item-description">Made-to-order lemonade with real lemons, perfectly sweetened and
+                                served over ice.</p>
+                            <div class="item-meta">
+                                <span class="item-price">$3.49</span>
+                                <span class="item-badge">Fresh!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=300&h=300&fit=crop"
+                            alt="Sweet Iced Tea" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Sweet Iced Tea</h3>
+                            <p class="item-description">Southern-style sweet tea brewed fresh daily. A classic pairing
+                                with
+                                fried chicken!</p>
+                            <div class="item-meta">
+                                <span class="item-price">$2.99</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop"
+                            alt="Classic Milkshake" class="item-image">
+                        <div class="item-details">
+                            <h3 class="item-name">Classic Milkshake</h3>
+                            <p class="item-description">Thick and creamy milkshake in vanilla, chocolate, or strawberry.
+                                Topped with whipped cream!</p>
+                            <div class="item-meta">
+                                <span class="item-price">$4.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

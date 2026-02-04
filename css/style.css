@@ -1,0 +1,729 @@
+/* Cozy Coop Restaurant Menu Styles */
+
+:root {
+    --navy-blue: #1e3a5f;
+    --bright-yellow: #fdb913;
+    --coral-red: #e74c3c;
+    --cream: #fff8f0;
+    --light-bg: #fffbf5;
+    --shadow: rgba(30, 58, 95, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, var(--cream) 0%, white 100%);
+    min-height: 100vh;
+    padding: 0;
+    color: var(--navy-blue);
+}
+
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    background: transparent;
+    min-height: 100vh;
+}
+
+.header {
+    text-align: center;
+    padding: 30px 20px 25px;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(253, 185, 19, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(30, 58, 95, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.logo-container {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 15px;
+}
+
+.logo {
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.tagline {
+    font-size: 16px;
+    color: var(--navy-blue);
+    font-weight: 400;
+    margin-top: 10px;
+    opacity: 0.8;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: transparent;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.main-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 3px;
+    border: 2px solid var(--navy-blue);
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+    flex-shrink: 0;
+}
+
+.toggle-btn {
+    padding: 10px;
+    background: transparent;
+    border: none;
+    color: var(--navy-blue);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.toggle-btn svg {
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: rgba(30, 58, 95, 0.1);
+}
+
+.toggle-btn.active {
+    background: var(--navy-blue);
+    color: white;
+}
+
+.tab {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid var(--navy-blue);
+    border-radius: 30px;
+    color: var(--navy-blue);
+    font-family: 'Fredoka', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tab:hover {
+    background: rgba(255, 248, 240, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.tab.active {
+    background: var(--navy-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.menu-section {
+    padding: 0 20px;
+}
+
+/* Slider View Styles */
+.menu-section.slider-view {
+    padding: 0;
+}
+
+.menu-items.slider-view {
+    padding: 20px 0 60px 0;
+}
+
+/* When in slider view, make menu-items a swiper container */
+.menu-items.slider-view.swiper {
+    width: 100%;
+}
+
+.menu-items.slider-view .swiper-slide {
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--navy-blue);
+    border-radius: 50%;
+    width: 50px !important;
+    height: 50px !important;
+    margin-top: -25px !important;
+    color: var(--navy-blue) !important;
+    font-size: 18px !important;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: var(--navy-blue);
+    color: white !important;
+    transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+.swiper-button-disabled {
+    opacity: 0.3 !important;
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
+    bottom: 10px !important;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(30, 58, 95, 0.3) !important;
+    opacity: 1 !important;
+    width: 12px !important;
+    height: 12px !important;
+    margin: 0 6px !important;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--navy-blue) !important;
+    transform: scale(1.3);
+}
+
+.swiper-pagination-bullet:hover {
+    background: var(--bright-yellow) !important;
+}
+
+.menu-items.slider-view::-webkit-scrollbar {
+    height: 8px;
+}
+
+.menu-items.slider-view::-webkit-scrollbar-track {
+    background: rgba(30, 58, 95, 0.1);
+    border-radius: 4px;
+}
+
+.menu-items.slider-view::-webkit-scrollbar-thumb {
+    background: var(--bright-yellow);
+    border-radius: 4px;
+}
+
+.menu-items.slider-view::-webkit-scrollbar-thumb:hover {
+    background: var(--coral-red);
+}
+
+/* Portrait Card Layout for Slider */
+.menu-item.slider-card {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center;
+    width: 300px;
+    height: 500px;
+    min-height: 500px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    border: 2px solid var(--cream);
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.12);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: visible;
+    margin: 0 auto;
+}
+
+.menu-item.slider-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(30, 58, 95, 0.2);
+    background: rgba(255, 255, 255, 1);
+}
+
+/* Badge positioning for slider cards */
+.menu-item.slider-card .item-badge {
+    position: absolute !important;
+    top: 15px;
+    right: 15px;
+    font-size: 10px;
+    padding: 6px 12px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item.slider-card .item-image {
+    width: 220px !important;
+    height: 220px !important;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    border: 4px solid var(--cream);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+
+/* Image wrapper for price circle positioning */
+.menu-item.slider-card .image-wrapper {
+    position: relative !important;
+    display: inline-block !important;
+    margin: 0 auto 20px !important;
+}
+
+/* Price circle on bottom left of image - SLIDER ONLY */
+.menu-item.slider-card .price-circle {
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: 3px solid var(--coral-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--coral-red);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 3;
+}
+
+/* Hide the original price in slider view */
+.menu-item.slider-card .item-price {
+    display: none !important;
+}
+
+/* Styles for items without images or broken images */
+.menu-item.slider-card .image-placeholder {
+    width: 220px !important;
+    height: 220px !important;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    border: 4px solid var(--cream);
+    background: linear-gradient(135deg, var(--cream) 0%, #f8f4e6 100%);
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 48px;
+    color: var(--navy-blue);
+    opacity: 0.7;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Center content for items without images */
+.menu-item.slider-card.no-image {
+    justify-content: center !important;
+}
+
+.menu-item.slider-card.no-image .item-details {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    min-height: 300px !important;
+    padding: 40px 20px !important;
+}
+
+.menu-item.slider-card.no-image .item-name {
+    font-size: 24px !important;
+    margin-bottom: 20px !important;
+}
+
+.menu-item.slider-card.no-image .item-description {
+    font-size: 16px !important;
+    max-height: none !important;
+    -webkit-line-clamp: none !important;
+}
+
+.menu-item.slider-card .item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item.slider-card .item-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.menu-item.slider-card .item-description {
+    font-size: 13px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    height: auto;
+    max-height: 70px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    padding: 0 5px;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+}
+
+.menu-item.slider-card .item-meta {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.menu-item.slider-card .item-price {
+    font-size: 28px;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.section-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--navy-blue);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--bright-yellow) 0%, var(--coral-red) 100%);
+    border-radius: 2px;
+}
+
+.menu-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 18px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--cream);
+    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.08);
+    position: relative;
+    overflow: hidden;
+    animation: slideIn 0.5s ease-out backwards;
+}
+
+.menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--bright-yellow) 0%, var(--coral-red) 100%);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover::before {
+    transform: scaleY(1);
+}
+
+.menu-item:nth-child(1) { animation-delay: 0.1s; }
+.menu-item:nth-child(2) { animation-delay: 0.15s; }
+.menu-item:nth-child(3) { animation-delay: 0.2s; }
+.menu-item:nth-child(4) { animation-delay: 0.25s; }
+.menu-item:nth-child(5) { animation-delay: 0.3s; }
+.menu-item:nth-child(6) { animation-delay: 0.35s; }
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.menu-item:hover {
+    border-color: var(--bright-yellow);
+    box-shadow: 0 8px 24px var(--shadow);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.item-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--cream);
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-name {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--navy-blue);
+}
+
+.item-description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--navy-blue);
+    opacity: 0.75;
+    margin-bottom: 8px;
+}
+
+.item-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.item-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--coral-red);
+    font-family: 'Fredoka', sans-serif;
+}
+
+.item-badge {
+    background: var(--bright-yellow);
+    color: var(--navy-blue);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+}
+
+.spicy-indicator {
+    display: inline-block;
+    color: var(--coral-red);
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.chicken-pattern {
+    position: fixed;
+    opacity: 0.03;
+    font-size: 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-tabs {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .main-tabs {
+        justify-content: center;
+    }
+    
+    .view-toggle {
+        align-self: center;
+    }
+    
+    /* Reduce logo size on mobile by 15% */
+    .logo {
+        max-width: 153px; /* 180px * 0.85 = 153px */
+    }
+    
+    /* Reduce header padding to save more space */
+    .header {
+        padding: 10px 20px;
+    }
+    
+    .logo-container {
+        margin-bottom: 10px;
+    }
+    
+    /* Reduce tagline font size slightly */
+    .tagline {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .item-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .item-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .menu-items.slider-view {
+        padding: 0 10px;
+    }
+    
+    .menu-item.slider-card {
+        flex: 0 0 360px;
+        height: auto;
+    }
+    
+    .menu-item.slider-card .item-image {
+        width: 300px !important;
+        height: 300px !important;
+    }
+    
+    .menu-item.slider-card .item-name {
+        font-size: 18px;
+    }
+    
+    .menu-item.slider-card .item-price {
+        font-size: 24px;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 40px !important;
+        height: 40px !important;
+        margin-top: -20px !important;
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 14px !important;
+    }
+    
+    .toggle-btn {
+        padding: 8px;
+        width: 36px;
+        height: 36px;
+    }
+    
+    .toggle-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    /* Keep logo bounce even with reduced motion */
+    .logo {
+        animation: none !important;
+    }
+}
+
+/* Ensure logo animation works */
+.logo {
+    display: block;
+    animation: bounce 2s ease-in-out infinite !important;
+}
+
+/* Print styles */
+@media print {
+    .nav-tabs,
+    .chicken-pattern {
+        display: none !important;
+    }
+    
+    .menu-item {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #000;
+        background: white !important;
+    }
+    
+    body {
+        background: white !important;
+    }
+}
